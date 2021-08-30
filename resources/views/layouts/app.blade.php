@@ -18,7 +18,7 @@
 
     <!-- Vue from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    
+
 </head>
 <body class="font-sans bg-gray-background text-gray-900 text-sm">
 <header class="flex items-center justify-between px-8 py-4">

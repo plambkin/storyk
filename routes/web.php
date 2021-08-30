@@ -33,4 +33,5 @@ Route::get('/vue3', function () {
     return view('vue3');
 });
 
+
 require __DIR__.'/auth.php';
