@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\AnswerLogController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\SubmissionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,25 +18,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('test');
+
+
+
+Route::get('/answerlog', [AnswerLogController::class, 'first'])->name('first');
+
+Route::get('/nextQuestion', [AnswerLogController::class, 'nextQuestion'])->name('nextQuestion');
+
+Route::get('/test', [SubmissionController::class, 'index'])->name('test');
+
+Route::post('/add/', [SubmissionController::class, 'store'])->name('add');
+
+Route::get('/profile',[UserController::class, 'show'])->name('profile');
+
+Route::get('/', [SubmissionController::class, 'index']);
+
+
+Route::post('/learn', function (){
+    return view('/learn');
 });
 
-Route::get('/vue', function () {
-    return view('vue');
-});
 
-Route::get('/vue1', function () {
-    return view('vue1');
-});
-
-Route::get('/vue2', function () {
-    return view('vue2');
-});
-
-Route::get('/vue3', function () {
-    return view('vue3');
-});
-
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

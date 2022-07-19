@@ -18,8 +18,9 @@
 
     <!-- Vue from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-
+    @livewireStyles
 </head>
+
 <body class="font-sans bg-gray-background text-gray-900 text-sm">
 <header class="flex items-center justify-between px-8 py-4">
     <a href="#"><img src="{{ asset('img/logo.svg') }}" alt="logo"></a>
@@ -52,14 +53,15 @@
     </div>
 </header>
 
-<main class="container mx-auto max-w-custom flex">
-    <div class="w-1/3 mr-5 mt-16 ">Online now
+@auth
 
-        <div class=" h-24 mr-5 mt-8 flex">
-            {{ $start=1 }}
-            {{ $end=5 }}
-            @for ($i = $start; $i <= $end; $i++)
-                <div>
+<main class="container mx-auto max-w-custom flex">
+    <div class="w-1/3 mr-5 mt-16 text-xl font-semibold">Online now
+
+        <div class=" h-32  mt-8 flex">
+
+            @for ($i = 1; $i <= 5; $i++)
+                <div >
                     <a href="#">
                         <img src="https://www.gravatar.com/avatar/b6bedca0eda879de96fa7b9e1cc5cc94?d=mp" alt="avatar"
                              class="w-10 h-10 rounded-full">
@@ -75,17 +77,17 @@
     <div class="w-10/12">
         <nav class="flex items-center justify-between text-xs">
             <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
-                <li><a href="#" class="border-b-4 pb-3 border-blue">Test (32)</a></li>
-                <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Learn
+                <li><a href="" class="border-b-4 pb-3 border-blue">Test (32)</a></li>
+                <li><a href="" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Learn
                         (6)</a></li>
                 <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Pick
                         Question (1)</a></li>
             </ul>
 
             <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
-                <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Tutor
+                <li><a href="" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Tutor
                         Comments (10)</a></li>
-                <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">My
+                <li><a href="{{url('/profile')}}" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">My
                         Profile</a></li>
             </ul>
         </nav>
@@ -93,8 +95,9 @@
 
 
 </main>
-
+@endauth
 {{ $slot }}
 
+@livewireScripts
 </body>
 </html>
